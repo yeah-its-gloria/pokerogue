@@ -7,7 +7,7 @@ import { TrainerSlot } from "#app/data/trainer-config";
 import { HiddenAbilityRateBoosterModifier, IvScannerModifier } from "#app/modifier/modifier";
 import { EnemyPokemon } from "#app/field/pokemon";
 import { PokeballType } from "#app/data/pokeball";
-import { PlayerGender } from "#enums/player-gender";
+import { CharacterGender } from "#app/enums/character-gender";
 import { IntegerHolder, randSeedInt } from "#app/utils";
 import { getPokemonSpecies } from "#app/data/pokemon-species";
 import { MoneyRequirement } from "#app/data/mystery-encounters/mystery-encounter-requirements";
@@ -333,7 +333,7 @@ async function throwBait(scene: BattleScene, pokemon: EnemyPokemon): Promise<boo
   scene.field.add(bait);
 
   return new Promise(resolve => {
-    scene.trainer.setTexture(`trainer_${scene.gameData.gender === PlayerGender.FEMALE ? "f" : "m"}_back_pb`);
+    scene.trainer.setTexture(`trainer_${scene.gameData.gender === CharacterGender.FEMALE ? "f" : "m"}_back_pb`);
     scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[0], () => {
       scene.playSound("se/pb_throw");
 
@@ -342,7 +342,7 @@ async function throwBait(scene: BattleScene, pokemon: EnemyPokemon): Promise<boo
       scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[1], () => {
         scene.trainer.setFrame("3");
         scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[2], () => {
-          scene.trainer.setTexture(`trainer_${scene.gameData.gender === PlayerGender.FEMALE ? "f" : "m"}_back`);
+          scene.trainer.setTexture(`trainer_${scene.gameData.gender === CharacterGender.FEMALE ? "f" : "m"}_back`);
         });
       });
 
@@ -399,7 +399,7 @@ async function throwMud(scene: BattleScene, pokemon: EnemyPokemon): Promise<bool
   scene.field.add(mud);
 
   return new Promise(resolve => {
-    scene.trainer.setTexture(`trainer_${scene.gameData.gender === PlayerGender.FEMALE ? "f" : "m"}_back_pb`);
+    scene.trainer.setTexture(`trainer_${scene.gameData.gender === CharacterGender.FEMALE ? "f" : "m"}_back_pb`);
     scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[0], () => {
       scene.playSound("se/pb_throw");
 
@@ -408,7 +408,7 @@ async function throwMud(scene: BattleScene, pokemon: EnemyPokemon): Promise<bool
       scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[1], () => {
         scene.trainer.setFrame("3");
         scene.time.delayedCall(TRAINER_THROW_ANIMATION_TIMES[2], () => {
-          scene.trainer.setTexture(`trainer_${scene.gameData.gender === PlayerGender.FEMALE ? "f" : "m"}_back`);
+          scene.trainer.setTexture(`trainer_${scene.gameData.gender === CharacterGender.FEMALE ? "f" : "m"}_back`);
         });
       });
 
